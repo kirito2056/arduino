@@ -22,7 +22,7 @@
   PC3   D31     SW3
 ********************************************************************************/
 #define F_CPU 16000000UL
-#include <avr/io.h>
+#include <avr/io.h>f
 #include <util/delay.h>
 
 #define SW0 (PINC&0X01)
