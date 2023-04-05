@@ -96,7 +96,7 @@ bool TASK_LED4_STATUS = true;
 void TASK_LED4(TASK_ARGS *args) {
   if (TASK_LED4_STATUS) {
     LED4_ON;
-  } else {
+  } else {  
     LED4_OFF;
   }
   TASK_LED4_STATUS = !TASK_LED4_STATUS;
