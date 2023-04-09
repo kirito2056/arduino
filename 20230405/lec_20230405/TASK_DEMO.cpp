@@ -56,8 +56,8 @@ void TASK_DEMO(TASK_ARGS *args) {
 
 }
 
-TASK_ARGS ARGS_TASK_SW;
-void TASK_SW(TASK_ARGS *args) {
+TASK_ARGS ARGS_TASK_SW_0;
+void TASK_SW_0(TASK_ARGS *args) {
 	if (!FLAG_TASK_DEMO_ENABLE && SW0) {
 		if (DEMO_COUNT < MAX_MEMORY) {
 			DEMO_DATA[DEMO_COUNT] = random(8);
