@@ -31,4 +31,5 @@
 #define LED7_ON  (PORTE|=0X80)
 #define LED7_OFF (PORTE&=~0X80)
 
+#define LED_ALL_ON (PORTE&=~0X00)
 #define LED_ALL_OFF (PORTE&=~0XFF)

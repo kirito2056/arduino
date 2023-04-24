@@ -15,6 +15,9 @@ extern void TASK_SW_0(TASK_ARGS *args);
 extern TASK_ARGS ARGS_TASK_SW_1;
 extern void TASK_SW_1(TASK_ARGS *args);
 
+extern TASK_ARGS ARGS_TASK_USER;
+extern void TASK_USER(TASK_ARGS *args);
+
 void setup() {
   randomSeed(analogRead(0));
   DDRE = 0XFF; // PORTE 출력으로 설정 FOR  8 LED
@@ -26,6 +29,7 @@ void setup() {
   TASK_MANAGER::NEW_TASK(TASK_SW_1,   &ARGS_TASK_SW_1, 100, 100);
   TASK_MANAGER::NEW_TASK(TASK_DEMO, &ARGS_TASK_DEMO, 100, 500);
   TASK_MANAGER::NEW_TASK(TASK_BEEP, &ARGS_TASK_BEEP, 100, 200);
+  TASK_MANAGER::NEW_TASK(TASK_USER, &ARGS_TASK_USER, 100, 200);
 }
 
 void loop() {
