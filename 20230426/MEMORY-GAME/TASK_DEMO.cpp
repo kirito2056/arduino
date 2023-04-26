@@ -24,27 +24,35 @@ void TASK_DEMO(TASK_ARGS *args) {
 		if (DEMO_DATA[DEMO_INDEX] == 1) {
 			LED0_ON;
 			PORTB = FND[1];
+      LCD_PRINT(0, "DEMO MODE      1");
 		} else if (DEMO_DATA[DEMO_INDEX] == 2) {
 			LED1_ON;
 			PORTB = FND[2];
+      LCD_PRINT(0, "DEMO MODE      2");
 		} else if (DEMO_DATA[DEMO_INDEX] == 3) {
 			LED2_ON;
 			PORTB = FND[3];
+      LCD_PRINT(0, "DEMO MODE      3");
 		} else if (DEMO_DATA[DEMO_INDEX] == 4) {
 			LED3_ON;
 			PORTB = FND[4];
+      LCD_PRINT(0, "DEMO MODE      4");
 		} else if (DEMO_DATA[DEMO_INDEX] == 5) {
 			LED4_ON;
 			PORTB = FND[5];
+      LCD_PRINT(0, "DEMO MODE      5");
 		} else if (DEMO_DATA[DEMO_INDEX] == 6) {
 			LED5_ON;
 			PORTB = FND[6];
+      LCD_PRINT(0, "DEMO MODE      6");
 		} else if (DEMO_DATA[DEMO_INDEX] == 7) {
 			LED6_ON;
 			PORTB = FND[7];
+      LCD_PRINT(0, "DEMO MODE      7");
 		} else if (DEMO_DATA[DEMO_INDEX] == 8) {
 			LED7_ON;
 			PORTB = FND[8];
+      LCD_PRINT(0, "DEMO MODE      8");
 		}
 	    P_TASK_INFO->TIME_LOOP = 200;
 	} else {
@@ -78,6 +86,8 @@ void TASK_SW_0(TASK_ARGS *args) {
 		FLAG_TASK_DEMO_ENABLE = true;
 	}
 }
+
+
 
 
 // 수행평가 제출용

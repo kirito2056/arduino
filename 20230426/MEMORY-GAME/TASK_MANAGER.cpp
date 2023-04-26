@@ -31,6 +31,16 @@ void TASK_MANAGER::LOOP(){
 	}
 }
 
+void TASK_MANAGER::RESTART() {
+  unsigned long TIME_PLUS_FIVESECOND = millis() + 5000;
+  while ( millis() < TIME_PLUS_FIVESECOND) {
+      LCD_PRINT(0, "GAME OVER       ");
+      sprintf(STR_LINE, "SCORE : %08d", SCORE);
+      LCD_PRINT(1, STR_LINE);
+  }
+  TASK_MANAGER::LOOP();
+}
+
 int TASK_MANAGER::NEW_TASK(void (*TASK_FUNC)(TASK_ARGS *ARGS), TASK_ARGS *ARGS, int TIME_OUT, int TIME_LOOP) {
 	int TASK_INDEX = 0;
 	for (int i=0; i<TASK_MAX_COUNT; i++) {
@@ -59,4 +69,4 @@ TASK_INFO* TASK_MANAGER::GET_TASK_INFO(int TASK_INDEX) {
 }
 
 
-// ¼öÇàÆò°¡ Á¦Ãâ¿ë
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½

@@ -31,10 +31,14 @@ bool FLAG_SW_OK = false;
 
 TASK_ARGS ARGS_TASK_USER;
 void TASK_USER(TASK_ARGS *args) {
+  int WRONG_COUNT = 0;
 	if (!FLAG_TASK_USER_ENABLE) return;
 	if (!FLAG_SW_OK) return;
 		
 	if (DEMO_DATA[USER_INDEX] == USER_SW_VALUE) {
+    LCD_PRINT(0, "USER MODE      " + USER_SW_VALUE);
+    sprintf(STR_LINE, "SCORE : %08d", SCORE);
+    LCD_PRINT(1, STR_LINE);
 		USER_INDEX += 1;
 		MAX_LED_COUNT = 1;
 		TASK_LED_ENABLE = true;
@@ -46,12 +50,23 @@ void TASK_USER(TASK_ARGS *args) {
 		} else {
 			USER_SW_REQUIRE = true;
 		}
+    SCORE++;
 	} else {
+    WRONG_COUNT++;
 		MAX_LED_COUNT = 5;
 		TASK_LED_ENABLE = true;
 		USER_INDEX = 0;
 		USER_SW_REQUIRE = true;
 	}
+
+    LCD_PRINT(0, "1ST SW TO NEXT  ");
+    sprintf(STR_LINE, "SCORE : %08d", SCORE);
+    LCD_PRINT(1, STR_LINE);
+
+  if ( WRONG_COUNT == 3) {
+    TASK_MANAGER::RESTART(); 
+  }
+
 	FLAG_SW_OK		= false;
 }
 
@@ -102,4 +117,4 @@ void TASK_SW_USER(TASK_ARGS *args) {
 }
 
 
-// ¼öÇàÆò°¡ Á¦Ãâ¿ë
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
