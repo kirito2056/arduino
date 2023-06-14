@@ -1,0 +1,29 @@
+#include "TASK_MANAGER.h"
+
+void LED_ALL_ON() {
+	PORTB = 0b11111111;
+}
+void LED_ALL_OFF() {
+	PORTB = 0b00000000;
+}
+void LED_ON(int INDEX) {
+	int D = 0b00000001 << INDEX;
+	PORTB |= D;
+}
+void LED_OFF(int INDEX) {
+	int D = 0b00000001 << INDEX;
+	PORTB &= ~D;
+}
+
+bool TASK_FIRE_ACTION_ENABLE = false;
+bool TASK_FIRE_ACTION_LED_ON = true;
+TASK_ARGS ARGS_TASK_FIRE_ACTION;
+void TASK_FIRE_ACTION(TASK_ARGS *args) {
+	if (!TASK_FIRE_ACTION_ENABLE) return;
+	if (TASK_FIRE_ACTION_LED_ON) {
+		LED_ALL_ON();
+	} else {
+		LED_ALL_OFF();
+	}
+	TASK_FIRE_ACTION_LED_ON = !TASK_FIRE_ACTION_LED_ON;
+}
